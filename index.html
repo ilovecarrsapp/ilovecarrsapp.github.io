@@ -6,213 +6,152 @@
     <title>🛒 Carrs Fan Club</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #FF3366;
-            --secondary: #6B4BFF;
-            --accent: #00D1FF;
-            --dark: #1A1A2E;
-            --light: #FFFFFF;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
+        /* ... (previous CSS until gallery section) ... */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        body {
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Cool Wavy Header */
-        .header {
-            background: var(--gradient);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18.17 138.3 24.42 209.4 13.08 36.15-5.74 72.02-17.24 106.1-32.03C950.02 29.34 1000.36 9.68 1050 0v120H0z" fill="%23ffffff"/></svg>') repeat-x;
-            background-size: 1200px 100px;
-            animation: wave 10s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { background-position: 0; }
-            100% { background-position: 1200px; }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 8rem 2rem;
-            color: white;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Cool Features Section */
-        .features {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Cool Button */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Fun Gallery */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            gap: 2rem;
             padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .gallery-item {
+            height: 250px;
             border-radius: 15px;
             overflow: hidden;
             position: relative;
-            aspect-ratio: 1;
-            background: var(--gradient);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        /* Shopping Cart Image */
+        .gallery-item:nth-child(1) {
+            background: linear-gradient(45deg, #FF3366, #6B4BFF);
+            position: relative;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                padding: 6rem 1rem;
-            }
+        .gallery-item:nth-child(1)::before {
+            content: '🛒';
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-            .features, .gallery {
-                padding: 2rem 1rem;
-            }
+        /* Store Building Image */
+        .gallery-item:nth-child(2) {
+            background: linear-gradient(45deg, #6B4BFF, #00D1FF);
+            position: relative;
+        }
+
+        .gallery-item:nth-child(2)::before {
+            content: '🏪';
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Shopping Bag Image */
+        .gallery-item:nth-child(3) {
+            background: linear-gradient(45deg, #00D1FF, #FF3366);
+            position: relative;
+        }
+
+        .gallery-item:nth-child(3)::before {
+            content: '🛍️';
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Star Rating Image */
+        .gallery-item:nth-child(4) {
+            background: linear-gradient(45deg, #FF3366, #6B4BFF);
+            position: relative;
+        }
+
+        .gallery-item:nth-child(4)::before {
+            content: '⭐⭐⭐⭐⭐';
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Card Overlays */
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Animation for emojis */
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%); }
+            50% { transform: translate(-50%, -60%); }
+        }
+
+        .gallery-item::before {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Card Labels */
+        .gallery-item-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: white;
+            font-weight: 600;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-label {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="hero-content">
-            <h1>Welcome to Carrs Fan Club! 🛒</h1>
-            <p>Join our community of Carrs superfans and share your shopping adventures!</p>
-            <a href="#features" class="btn">Join The Fun!</a>
-        </div>
-        <div class="wave"></div>
-    </header>
-
-    <section class="features" id="features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎉</div>
-                <h3>Fan Meetups</h3>
-                <p>Meet other Carrs fans and share your favorite shopping stories!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💫</div>
-                <h3>Shopping Tips</h3>
-                <p>Get insider tips on the best deals and hidden gems at Carrs!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h3>Photo Gallery</h3>
-                <p>Share your best Carrs shopping moments with the community!</p>
-            </div>
-        </div>
-    </section>
+    <!-- ... (previous HTML until gallery section) ... -->
 
     <section class="gallery">
-        <!-- Add gallery items here with actual Carrs-related images -->
         <div class="gallery-item">
-            <img src="placeholder1.jpg" alt="Carrs Store Front">
+            <div class="gallery-item-label">Shopping Cart</div>
         </div>
         <div class="gallery-item">
-            <img src="placeholder2.jpg" alt="Happy Shoppers">
+            <div class="gallery-item-label">Our Store</div>
         </div>
         <div class="gallery-item">
-            <img src="placeholder3.jpg" alt="Shopping Cart">
+            <div class="gallery-item-label">Shopping Time</div>
         </div>
         <div class="gallery-item">
-            <img src="placeholder4.jpg" alt="Grocery Haul">
+            <div class="gallery-item-label">5-Star Experience</div>
         </div>
     </section>
 
