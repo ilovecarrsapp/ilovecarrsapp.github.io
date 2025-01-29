@@ -3,193 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Ultimate Fan Site for the Carrs App!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>System Status - ilovecarrsapp</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --background-color: #f8f9fa;
-            --text-color: #2c3e50;
-            --container-width: 1200px;
+            --primary: #00ff9d;
+            --secondary: #0af;
+            --dark: #0a0a1f;
+            --text: #e0e0ff;
+            --grid: rgba(0, 255, 157, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--text);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: var(--container-width);
+        .system-header {
+            background: rgba(10, 10, 31, 0.9);
+            padding: 1rem;
+            border-bottom: 2px solid var(--primary);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .system-time {
+            color: var(--primary);
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .user-info {
+            color: var(--secondary);
+        }
+
+        .main-content {
+            padding-top: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             padding: 2rem;
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin: 2rem 0 1rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .status-card {
+            background: rgba(10, 10, 31, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
             transition: transform 0.3s ease;
         }
 
-        .card:hover {
+        .status-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+        .status-header {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 0.5rem;
         }
 
-        li {
-            padding: 0.8rem 0;
-            position: relative;
-            padding-left: 1.5rem;
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
 
-        li::before {
-            content: '→';
-            color: var(--secondary-color);
-            position: absolute;
+        .system-bg {
+            position: fixed;
+            top: 0;
             left: 0;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animated {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="animated">Welcome to the Ultimate Fan Site for the Carrs App!</h1>
-            <p class="animated">Your one-stop destination for everything Carrs</p>
+    <div class="system-bg"></div>
+    
+    <header class="system-header">
+        <div class="header-content">
+            <div class="system-time" id="utcTime">2025-01-29 20:09:50</div>
+            <div class="user-info">USER: ilovecarrsapp</div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="card animated">
-            <h2>Why We Love the Carrs App</h2>
-            <p>The Carrs app is revolutionizing the way we shop for groceries. Here's what makes it special:</p>
-            <ul>
-                <li>Intuitive and user-friendly interface</li>
-                <li>Exclusive deals and personalized offers</li>
-                <li>Convenient delivery and pickup options</li>
-                <li>Smart meal planning suggestions</li>
-                <li>Customized shopping experience</li>
-            </ul>
-        </div>
+    <main class="main-content">
+        <div class="status-grid">
+            <div class="status-card">
+                <h3 class="status-header">System Status</h3>
+                <p>ONLINE</p>
+                <p>Connection: Secure</p>
+                <p>Latency: 12ms</p>
+            </div>
+            
+            <div class="status-card">
+                <h3 class="status-header">User Session</h3>
+                <p>Status: Active</p>
+                <p>Session ID: #AF392E1</p>
+                <p>Last Login: 2025-01-29</p>
+            </div>
 
-        <div class="card animated">
-            <h2>Amazing Features</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>Weekly Deals</h3>
-                    <p>Browse the latest promotions and save big on your favorite items</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Smart Lists</h3>
-                    <p>Create and manage your shopping lists with ease</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Quick Ordering</h3>
-                    <p>Schedule deliveries or pickups with just a few taps</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Store Locator</h3>
-                    <p>Find nearby stores and check their operating hours</p>
-                </div>
+            <div class="status-card">
+                <h3 class="status-header">System Resources</h3>
+                <p>CPU Usage: 23%</p>
+                <p>Memory: 4.2GB/16GB</p>
+                <p>Storage: 756GB Free</p>
             </div>
         </div>
+    </main>
 
-        <div class="card animated">
-            <h2>Join Our Community</h2>
-            <p>Connect with fellow Carrs app enthusiasts and:</p>
-            <ul>
-                <li>Share your shopping experiences</li>
-                <li>Discover money-saving tips</li>
-                <li>Learn about new features</li>
-                <li>Get help from experienced users</li>
-            </ul>
-        </div>
-    </div>
+    <script>
+        // Update UTC time every second
+        function updateTime() {
+            const timeElement = document.getElementById('utcTime');
+            const now = new Date();
+            
+            const year = now.getUTCFullYear();
+            const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+            const day = String(now.getUTCDate()).padStart(2, '0');
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+            const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            timeElement.textContent = formattedTime;
+        }
+
+        // Update time immediately and then every second
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Add some dynamic system status updates
+        setInterval(() => {
+            const cpuUsage = Math.floor(Math.random() * 30 + 10);
+            const memoryUsage = (Math.random() * 2 + 3).toFixed(1);
+            document.querySelector('.status-card:last-child').innerHTML = `
+                <h3 class="status-header">System Resources</h3>
+                <p>CPU Usage: ${cpuUsage}%</p>
+                <p>Memory: ${memoryUsage}GB/16GB</p>
+                <p>Storage: 756GB Free</p>
+            `;
+        }, 3000);
+    </script>
 </body>
 </html>
