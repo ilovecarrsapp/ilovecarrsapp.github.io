@@ -4,79 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Ultimate Fan Site for the Carrs App!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --container-width: 1200px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
 
-        h1, h2 {
-            font-weight: 700;
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
 
-        p, ul, li {
-            font-weight: 400;
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: '→';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .animated {
-            animation-duration: 1.5s;
-            animation-timing-function: ease-in-out;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
         }
 
-        .slide-in {
-            animation-name: slideIn;
-        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
 
-        .fade-in {
-            animation-name: fadeIn;
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 class="animated slide-in">Welcome to the Ultimate Fan Site for the Carrs App!</h1>
-    <p class="animated fade-in">The Carrs app is a game-changer for all your grocery shopping needs. Join us as we explore all the amazing features and benefits of using the Carrs app.</p>
-    <h2 class="animated slide-in">Why We Love the Carrs App</h2>
-    <ul class="animated fade-in">
-        <li>Easy to use and navigate</li>
-        <li>Exclusive discounts and offers</li>
-        <li>Seamless grocery delivery and pickup options</li>
-        <li>Recipe suggestions and meal planning</li>
-        <li>Personalized shopping experience</li>
-    </ul>
-    <h2 class="animated slide-in">Features of the Carrs App</h2>
-    <p class="animated fade-in">With the Carrs app, you can:</p>
-    <ul class="animated fade-in">
-        <li>Browse weekly ads and promotions</li>
-        <li>Create shopping lists</li>
-        <li>Order groceries for delivery or pickup</li>
-        <li>Find store locations and hours</li>
-        <li>Access your rewards and savings</li>
-    </ul>
-    <h2 class="animated slide-in">Join the Community</h2>
-    <p class="animated fade-in">Become a part of our fan community and share your experiences with the Carrs app. Connect with other users and discover new ways to make the most of the app.</p>
+    <header>
+        <div class="container">
+            <h1 class="animated">Welcome to the Ultimate Fan Site for the Carrs App!</h1>
+            <p class="animated">Your one-stop destination for everything Carrs</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card animated">
+            <h2>Why We Love the Carrs App</h2>
+            <p>The Carrs app is revolutionizing the way we shop for groceries. Here's what makes it special:</p>
+            <ul>
+                <li>Intuitive and user-friendly interface</li>
+                <li>Exclusive deals and personalized offers</li>
+                <li>Convenient delivery and pickup options</li>
+                <li>Smart meal planning suggestions</li>
+                <li>Customized shopping experience</li>
+            </ul>
+        </div>
+
+        <div class="card animated">
+            <h2>Amazing Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Weekly Deals</h3>
+                    <p>Browse the latest promotions and save big on your favorite items</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Smart Lists</h3>
+                    <p>Create and manage your shopping lists with ease</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Quick Ordering</h3>
+                    <p>Schedule deliveries or pickups with just a few taps</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Store Locator</h3>
+                    <p>Find nearby stores and check their operating hours</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card animated">
+            <h2>Join Our Community</h2>
+            <p>Connect with fellow Carrs app enthusiasts and:</p>
+            <ul>
+                <li>Share your shopping experiences</li>
+                <li>Discover money-saving tips</li>
+                <li>Learn about new features</li>
+                <li>Get help from experienced users</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
