@@ -6,13 +6,6 @@
     <title>📱 Carrs App Fan Club!</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #FF3366;
-            --secondary: #6B4BFF;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -32,7 +25,7 @@
         }
 
         .hero {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #FF3366, #6B4BFF);
             padding: 4rem 2rem;
             text-align: center;
             color: white;
@@ -66,7 +59,7 @@
         .post-avatar {
             width: 50px;
             height: 50px;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #FF3366, #6B4BFF);
             border-radius: 50%;
             margin-right: 1rem;
             display: flex;
@@ -81,29 +74,20 @@
             color: #666;
         }
 
-        .post-content {
-            line-height: 1.6;
-        }
-
         .fan-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #FF3366, #6B4BFF);
             color: white;
             border-radius: 20px;
             font-size: 0.8rem;
             margin-left: 1rem;
         }
-
-        .excitement {
-            color: var(--primary);
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <div class="top-bar">
-        <span id="current-time">2025-01-29 20:19:09</span> | 
+        2025-01-29 20:22:06 | 
         Logged in as: ilovecarrsapp 🌟
     </div>
 
@@ -118,7 +102,7 @@
                 <div class="post-avatar">LC</div>
                 <div>
                     <h3>ilovecarrsapp <span class="fan-badge">Super Fan</span></h3>
-                    <div class="post-meta">Just now</div>
+                    <div class="post-meta">Posted Today</div>
                 </div>
             </div>
             <div class="post-content">
@@ -131,7 +115,7 @@
                 <div class="post-avatar">SH</div>
                 <div>
                     <h3>ShoppingQueen</h3>
-                    <div class="post-meta">2 hours ago</div>
+                    <div class="post-meta">Posted Today</div>
                 </div>
             </div>
             <div class="post-content">
@@ -144,7 +128,7 @@
                 <div class="post-avatar">DC</div>
                 <div>
                     <h3>DealChaser</h3>
-                    <div class="post-meta">5 hours ago</div>
+                    <div class="post-meta">Posted Today</div>
                 </div>
             </div>
             <div class="post-content">
@@ -152,22 +136,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function updateTime() {
-            const timeElement = document.getElementById('current-time');
-            const now = new Date();
-            const year = now.getUTCFullYear();
-            const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-            const day = String(now.getUTCDate()).padStart(2, '0');
-            const hours = String(now.getUTCHours()).padStart(2, '0');
-            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
-            timeElement.textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        }
-
-        updateTime();
-        setInterval(updateTime, 1000);
-    </script>
 </body>
 </html>
